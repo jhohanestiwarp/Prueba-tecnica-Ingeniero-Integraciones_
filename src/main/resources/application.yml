@@ -1,0 +1,20 @@
+server:
+  port: 8003
+
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/bancoUnion
+    username: postgres
+    password: admin123
+    pool:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  jwt:
+    secret: "MUVFQTJCQkFCMzI0MzkyM0E5QjlGNTU2REMyNDlEQTdEMjUyMUNBODFDQkE4"
+
+  api_url_v: /api/v1
+
+
