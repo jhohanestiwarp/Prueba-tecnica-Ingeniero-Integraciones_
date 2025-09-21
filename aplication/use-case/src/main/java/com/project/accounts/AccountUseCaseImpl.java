@@ -6,12 +6,13 @@ import com.project.account.gatewey.in.AccountUseCase;
 import com.project.account.gatewey.out.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class AccountUseCaseImpl implements AccountUseCase {
 
@@ -36,7 +37,7 @@ public class AccountUseCaseImpl implements AccountUseCase {
     }
 
     @Override
-    public Mono<AccountDto> updateAccount(String id, AccountDto accountDto) {
+    public Mono<AccountDto> updateAccount(Long id, AccountDto accountDto) {
         return accountRepository.findById(id)
                 .switchIfEmpty(Mono.error(new IllegalArgumentException("Cuenta no encontrada")))
                 .flatMap(existing -> {
@@ -48,12 +49,12 @@ public class AccountUseCaseImpl implements AccountUseCase {
     }
 
     @Override
-    public Flux<AccountDto> getAllAccounts(String bankId, String type) {
+    public Flux<AccountDto> getAllAccounts(Long bankId, String type) {
         return accountRepository.findAll(bankId, type);
     }
 
     @Override
-    public Mono<Boolean> deleteAccount(String id) {
+    public Mono<Boolean> deleteAccount(Long id) {
         return accountRepository.findById(id)
                 .switchIfEmpty(Mono.error(new IllegalArgumentException("Cuenta no encontrada")))
                 .flatMap(existing -> accountRepository.deleteById(id));

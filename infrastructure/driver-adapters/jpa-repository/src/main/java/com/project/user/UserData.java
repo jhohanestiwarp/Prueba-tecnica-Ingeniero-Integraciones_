@@ -1,7 +1,5 @@
 package com.project.user;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -15,25 +13,28 @@ import java.time.LocalDateTime;
 @Table(name = "users")
 public class UserData {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column("username")
     private String username;
 
+    @Column("fullname")
     private String fullname;
 
+    @Column("email")
     private String email;
 
+    @Column("password")
     private String password;
 
+    @Column("role")
     private String role;
 
+    @Column("state")
     private String state;
 
     @Column("created_at")
     private LocalDateTime createdAt;
 
     @Column("updated_at")
-    
-    private LocalDateTime updatedAt;
-}
+    private LocalDateTime updatedAt;}

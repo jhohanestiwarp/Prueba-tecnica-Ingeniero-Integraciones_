@@ -4,6 +4,7 @@ import com.project.account.AccountDto;
 import com.project.account.gatewey.in.AccountUseCase;
 import com.project.accounts.service.AccountService;
 import com.project.http.ResponseHandler;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +18,7 @@ import java.util.Map;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/v1/accounts")
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class AccountController {
 
     private final AccountService accountService;
@@ -37,7 +38,7 @@ public class AccountController {
 
     @GetMapping
     public Mono<ResponseEntity<Map<String, Object>>> getAll(
-            @RequestParam(required = false) String bankId,
+            @RequestParam(required = false) Long bankId,
             @RequestParam(required = false) String type
     ) {
         logger.info("account: listing all accounts");
@@ -52,7 +53,7 @@ public class AccountController {
     }
 
     @PutMapping("/{id}")
-    public Mono<ResponseEntity<Map<String, Object>>> update(@PathVariable String id, @RequestBody AccountDto request) {
+    public Mono<ResponseEntity<Map<String, Object>>> update(@PathVariable Long id, @RequestBody AccountDto request) {
         logger.info("account: updating {}", id);
 
         return accountService.updateAccount(id, request)
@@ -65,7 +66,7 @@ public class AccountController {
     }
 
     @DeleteMapping("/{id}")
-    public Mono<ResponseEntity<Map<String, Object>>> delete(@PathVariable String id) {
+    public Mono<ResponseEntity<Map<String, Object>>> delete(@PathVariable Long id) {
         logger.info("account: deleting {}", id);
 
         return accountService.deleteAccount(id)

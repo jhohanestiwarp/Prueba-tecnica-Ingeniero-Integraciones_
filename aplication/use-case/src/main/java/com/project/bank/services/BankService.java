@@ -4,9 +4,11 @@ import com.project.account.AccountDto;
 import com.project.accounts.AccountUseCaseImpl;
 import com.project.bank.BankDto;
 import com.project.bank.BankUseCaseImp;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
 public class BankService {
     private final BankUseCaseImp bankUseCaseImp;
 

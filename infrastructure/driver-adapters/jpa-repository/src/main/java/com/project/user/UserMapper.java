@@ -1,13 +1,5 @@
 package com.project.user;
 
-import com.project.user.properties.Email;
-import com.project.user.properties.FullName;
-import com.project.user.properties.Password;
-import com.project.user.properties.Role;
-import com.project.commons.properties.CreatedAt;
-import com.project.commons.properties.Id;
-import com.project.commons.properties.State;
-import com.project.commons.properties.UpdatedAt;
 import reactor.core.publisher.Mono;
 
 public class UserMapper {
@@ -15,7 +7,7 @@ public class UserMapper {
         return Mono.just(UserData.builder()
                 .id(user.getId() != null ? user.getId() : null)
                 .username(user.getUserName())
-                .fullName(user.getFullName() != null ? user.getFullName() : null)
+                .fullname(user.getFullName() != null ? user.getFullName() : null)
                 .email(user.getEmail() != null ? user.getEmail() : null)
                 .password(user.getPassword() != null ? user.getPassword() : null)
                 .role(user.getRole() != null ? user.getRole() : null)
@@ -28,13 +20,13 @@ public class UserMapper {
     public final Mono<UserData> toNewEntityData(UserDto user) {
         return Mono.just(UserData.builder()
                 .username(user.getUserName())
-                .fullName(user.getFullName() != null ? user.getFullName() : null)
-                .email(user.getEmail() != null ? user.getEmail() : null)
-                .password(user.getPassword() != null ? user.getPassword() : null)
-                .role(user.getRole() != null ? user.getRole() : null)
-                .state(user.getState() != null ? user.getState() : null)
-                .createdAt(user.getCreatedAt() != null ? user.getCreatedAt() : null)
-                .updatedAt(user.getUpdatedAt() != null ? user.getUpdatedAt() : null)
+                .fullname(user.getFullName())
+                .email(user.getEmail())
+                .password(user.getPassword())
+                .role(user.getRole())
+                .state(user.getState())
+                .createdAt(user.getCreatedAt())
+                .updatedAt(user.getUpdatedAt())
                 .build());
     }
 
@@ -50,7 +42,7 @@ public class UserMapper {
         return UserDto.builder()
                 .id(userData.getId())
                 .userName(userData.getUsername())
-                .fullName(userData.getFullName())
+                .fullName(userData.getFullname())
                 .email(userData.getEmail())
                 .password(userData.getPassword())
                 .role(userData.getRole())

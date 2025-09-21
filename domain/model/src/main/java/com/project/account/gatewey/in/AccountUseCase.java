@@ -8,9 +8,9 @@ public interface AccountUseCase {
 
     Mono<AccountDto> createAccount(AccountDto accountDto);
 
-    Mono<AccountDto> updateAccount(String id, AccountDto accountDto);
+    Mono<AccountDto> updateAccount(Long id, AccountDto accountDto);
 
-    Flux<AccountDto> getAllAccounts(String bankId, String type);
+    Flux<AccountDto> getAllAccounts(Long bankId, String type);
 
-    Mono<Boolean> deleteAccount(String id);
+    Mono<Boolean> deleteAccount(Long id);
 }

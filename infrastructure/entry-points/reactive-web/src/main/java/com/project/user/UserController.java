@@ -3,6 +3,7 @@ package com.project.user;
 import com.project.user.services.UserService;
 import com.project.commons.exception.EmailAlreadyExistsException;
 import com.project.http.ResponseHandler;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,6 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/v1/users")
-
 public class UserController {
     private final UserMapper mapper;
     private final UserService userService;

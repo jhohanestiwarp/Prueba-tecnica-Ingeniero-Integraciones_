@@ -7,9 +7,9 @@ import reactor.core.publisher.Flux;
 @Repository
 public interface AccountDataRepository extends ReactiveCrudRepository<AccountData, String> {
 
-    Flux<AccountData> findAllByBankAndType(String bank, String type);
+    Flux<AccountData> findAllByBankIdAndAccountTypeId(Long bankId, String type);
 
-    Flux<AccountData> findAllByBank(String bank);
+    Flux<AccountData> findAllByBankId(Long bankId);
 
-    Flux<AccountData> findAllByType(String type);
+    Flux<AccountData> findAllByAccountTypeId(String type);
 }

@@ -3,6 +3,7 @@ package com.project.bank;
 import com.project.bank.gatewey.in.BankUseCase;
 import com.project.bank.services.BankService;
 import com.project.http.ResponseHandler;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

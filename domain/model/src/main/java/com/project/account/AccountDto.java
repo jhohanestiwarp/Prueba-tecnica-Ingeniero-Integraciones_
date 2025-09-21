@@ -3,6 +3,8 @@ package com.project.account;
 import com.project.accountypes.AccountTypeDto;
 import com.project.bank.BankDto;
 import com.project.user.UserDto;
+import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +12,8 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Data
+@Builder
 public class AccountDto {
     private Long id;
     private String accountNumber;

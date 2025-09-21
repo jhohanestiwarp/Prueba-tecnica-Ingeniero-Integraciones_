@@ -10,9 +10,9 @@ public interface AccountRepository {
 
     Mono<AccountDto> update(AccountDto accountDto);
 
-    Flux<AccountDto> findAll(String bankId, String type);
+    Flux<AccountDto> findAll(Long bankId, String type);
 
-    Mono<AccountDto> findById(String id);
+    Mono<AccountDto> findById(Long id);
 
-    Mono<Boolean> deleteById(String id);
+    Mono<Boolean> deleteById(Long id);
 }

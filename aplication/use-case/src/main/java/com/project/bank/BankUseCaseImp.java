@@ -7,12 +7,13 @@ import com.project.commons.properties.CreatedAt;
 import com.project.commons.properties.UpdatedAt;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.time.LocalDateTime;
 
-@Component
+@Service
 @RequiredArgsConstructor
 public class BankUseCaseImp implements BankUseCase {
 

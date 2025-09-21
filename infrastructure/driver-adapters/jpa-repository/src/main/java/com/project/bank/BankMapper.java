@@ -1,6 +1,5 @@
 package com.project.bank;
 
-import com.project.bank.properties.*;
 import com.project.commons.properties.CreatedAt;
 import com.project.commons.properties.Id;
 import com.project.commons.properties.UpdatedAt;
@@ -20,15 +19,19 @@ public class BankMapper {
     }
 
     public BankDto toDomainModel(BankData bankData) {
-        return new BankDto(
-                new Id(bankData.getId()),
-                new BankId(bankData.getNit()),
-                new BankName(bankData.getName()),
-                new AccountTypesAllowed(bankData.getTypesAllowed()),
-                new MinLength(bankData.getMinLength()),
-                new MaxLength(bankData.getMaxLength()),
-                new CreatedAt(bankData.getCreatedAt()),
-                new UpdatedAt(bankData.getUpdatedAt())
-        );
+        if (bankData == null) {
+            return null;
+        }
+
+        return BankDto.builder()
+                .id(bankData.getId())
+                .code(bankData.getCode())
+                .nit(bankData.getNit())
+                .name(bankData.getName())
+                .isActive(bankData.getIsActive())
+//                .accountLengthRule(bankData.getAccountLengthRuleId())
+                .createdAt(bankData.getCreatedAt())
+                .updatedAt(bankData.getUpdatedAt())
+                .build();
     }
 }

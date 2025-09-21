@@ -1,51 +1,77 @@
-# project catalogue api
-Api para la administración de productos para la compañía simulada project. Construida bajo el enfoque de programación reactiva utilizando Web Flux y Spring Security para el manejo de permisos y roles, aplicando la arquitectura hexagonal.
 
-# Web api-doc
-https://documenter.getpostman.com/view/11322676/2s946k6WbK
+Project API
 
-# Download postman file
-https://www.mediafire.com/file/fanjk660h20nvev/project_Api.postman_collection.json/file
+API para la administración de cuentas, bancos y usuarios de la compañía simulada Project.
+Construida bajo el enfoque de programación reactiva utilizando Spring WebFlux y Spring Security para el manejo de permisos y roles, siguiendo la arquitectura hexagonal.
 
-# Download database file
-https://www.mediafire.com/file/l32y8rzmhm4t1qk/project_db.sql/file
+Documentación API
 
-# Docker Image
-https://hub.docker.com/layers/berserker04/project_api/1.0/images/sha256:c519d34beac64b03f8c4f37bb357129081513b825e09ba8cc714120c5b5dcc74
+API Docs (Postman): Ver documentación
+https://documenter.getpostman.com/view/11322676/2sB3HtFGrb
 
-# Start app
- * App
-   * download image: docker pull berserker04/project_api:1.0
-   * run image: docker run berserker04/project_api:1.0
-   * app running in port: 8080
+Colección Postman: Descargar
 
- * Database
-   * download database file
-   * import db file in the database postgres
-      * user db: c9ba0d41b19f917f6f853f5adaf185d0
-      * password: 8165c6fcfc2d73314e9e3713500856d6
-      * port: 5432
-* Pin api
-    * http://127.0.0.1:8080/api/v1/health
+https://www.mediafire.com/file/61fqigmy9yzwjac/BancoUnion.postman_collection.json/file
 
-# Test api
-* users credentials
-  * admin
-    * email: admin@example.com
-    * password: admin123
-  * user
-    * email: user@example.com
-    * password: client123
+Base de Datos
+https://www.mediafire.com/file/xssdza8f844dftb/dump-bancoUnion-202509202349.sql/file
 
 
+Dump SQL: Descargar
 
-# Framework
-Spring Boot: v3.1.1
+Motor usado: PostgreSQL
 
-Java: 17
+Conexión (R2DBC)
+spring:
+r2dbc:
+url: r2dbc:postgresql://localhost:5432/AutoManager
+username: postgres
+password: 12345678
 
-Gradle
+Docker
 
-Spring Reactive Web
+Imagen disponible en DockerHub:
+project_api:1.0
 
-Data Base: Postgres:13
+Levantar aplicación con Docker
+# Descargar imagen
+docker pull berserker04/project_api:1.0
+
+Ejecutar contenedor
+docker run -p 8000:8000 berserker04/project_api:1.0
+
+
+API expuesta en: http://127.0.0.1:8000
+
+Health check: http://127.0.0.1:8000/api/v1/health
+
+🔑 Credenciales de prueba
+
+{
+"email": "carlos2.perez@example.com",
+"password": "secreto123"
+}
+
+
+Usuario Cliente
+
+"email": "carlos2.perez@example.com",
+"password": "secreto123"
+
+⚙️ Tecnologías
+
+Framework: Spring Boot 3.1.1
+
+Lenguaje: Java 17
+
+Reactive Stack: Spring WebFlux
+
+Base de datos: PostgreSQL (con R2DBC)
+
+Seguridad: Spring Security + JWT
+
+Build Tool: Gradle
+
+Arquitectura: Hexagonal (puertos y adaptadores)
+
+Infraestructura: Docker

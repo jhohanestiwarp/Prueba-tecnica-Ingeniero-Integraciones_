@@ -10,32 +10,41 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder(toBuilder = true)
-@Table(name = "accounts")
+@Table(name = "enrolled_accounts")
 public class AccountData {
 
     @Id
     private Long id;
 
-    @Column("bank")
-    private String bank;
-
-    @Column("type")
-    private String type;
-
-    @Column("number")
-    private String number;
-
-    @Column("alias")
-    private String alias;
+    @Column("account_number")
+    private String accountNumber;
 
     @Column("cellphone")
     private String cellphone;
 
-    @Column("state")
-    private String state;
+    @Column("alias")
+    private String alias;
+
+    @Column("type_document")
+    private String typeDocument;
+
+    @Column("document")
+    private String document;
+
+    @Column("is_internal_bank")
+    private Boolean isInternalBank;
+
+    @Column("status")
+    private String status;
 
     @Column("user_id")
     private Long userId;
+
+    @Column("bank_id")
+    private Long bankId;
+
+    @Column("account_type_id")
+    private Long accountTypeId;
 
     @Column("created_at")
     private LocalDateTime createdAt;
