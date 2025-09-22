@@ -18,7 +18,7 @@ https://www.mediafire.com/file/xssdza8f844dftb/dump-bancoUnion-202509202349.sql/
 
 
 Prueba_Tecnica_Integraciones_Respuestas_Jhohan
-https://www.mediafire.com/file/o3eftjs5ahpw3lb/Prueba_Tecnica_Integraciones_Respuestas_Jhohan+Palacios.pdf/file
+https://www.mediafire.com/file/7ms0fmfsqvwjuk2/Prueba_Tecnica_Integraciones_Respuestas_JhohanPalacios.pdf/file
 
 Dump SQL: Descargar
 
