@@ -17,6 +17,9 @@ Base de Datos
 https://www.mediafire.com/file/xssdza8f844dftb/dump-bancoUnion-202509202349.sql/file
 
 
+Prueba_Tecnica_Integraciones_Respuestas_Jhohan
+https://www.mediafire.com/file/o3eftjs5ahpw3lb/Prueba_Tecnica_Integraciones_Respuestas_Jhohan+Palacios.pdf/file
+
 Dump SQL: Descargar
 
 Motor usado: PostgreSQL
