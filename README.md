@@ -76,7 +76,6 @@ Arquitectura: Hexagonal (puertos y adaptadores)
 
 Infraestructura: Docker
 <img width="1534" height="946" alt="image (11)" src="https://github.com/user-attachments/assets/448b6b56-88fe-45ae-889c-eb73399d44eb" />
-<img width="1492" height="941" alt="image (7)" src="https://github.com/user-attachments/assets/24bbb3bd-0a8f-4261-8803-6d76192b0632" />
 <img width="1507" height="948" alt="image (8)" src="https://github.com/user-attachments/assets/c36a966a-bf0f-4f45-a176-f1d4eef8bd1d" />
 <img width="1515" height="935" alt="image (9)" src="https://github.com/user-attachments/assets/f6047847-f529-48f4-9874-a502fc6e7108" />
 <img width="1520" height="941" alt="image (10)" src="https://github.com/user-attachments/assets/4d542ba6-8b0e-4353-8b78-1c79697b4a13" />
