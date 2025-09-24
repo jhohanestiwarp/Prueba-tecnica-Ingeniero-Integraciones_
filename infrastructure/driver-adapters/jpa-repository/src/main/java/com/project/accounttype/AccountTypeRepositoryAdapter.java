@@ -1,5 +1,8 @@
-package com.project.bank;
+package com.project.accounttype;
 
+import com.project.accountypes.AccountType;
+import com.project.accountypes.gatewey.out.AccountTypeRepository;
+import com.project.bank.Bank;
 import com.project.bank.gatewey.out.BankRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -8,30 +11,30 @@ import reactor.core.publisher.Mono;
 
 @Component
 @RequiredArgsConstructor
-public class BankRepositoryAdapter implements BankRepository {
+public class AccountTypeRepositoryAdapter implements AccountTypeRepository {
 
-    private final BankDataRepository repository;
-    private final BankMapper mapper;
+    private final AccountTypeDataRepository repository;
+    private final AccountTypeMapper mapper;
 
     @Override
-    public Mono<Bank> save(Bank bank) {
-        return repository.save(mapper.toEntityData(bank))
+    public Mono<AccountType> save(AccountType accountType) {
+        return repository.save(mapper.toEntityData(accountType, null))
                 .map(mapper::toDomainModel);
     }
 
     @Override
-    public Mono<Bank> update(Bank bankDto, Bank existing) {
-        return repository.save(mapper.toEntityDataForUpdate(bankDto, existing))
+    public Mono<AccountType> update(AccountType accountType, AccountType existing) {
+        return repository.save(mapper.toEntityData(accountType, existing))
                 .map(mapper::toDomainModel);
     }
 
     @Override
-    public Flux<Bank> findAll() {
+    public Flux<AccountType> findAll() {
         return repository.findAll().map(mapper::toDomainModel);
     }
 
     @Override
-    public Mono<Bank> findById(Long id) {
+    public Mono<AccountType> findById(Long id) {
         return repository.findById(id).map(mapper::toDomainModel);
     }
 

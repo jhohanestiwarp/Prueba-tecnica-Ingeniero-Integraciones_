@@ -1,7 +1,7 @@
 package com.project.account;
 
-import com.project.accountypes.AccountTypeDto;
-import com.project.bank.BankDto;
+import com.project.accountypes.AccountType;
+import com.project.bank.Bank;
 import com.project.user.UserDto;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
@@ -45,10 +45,10 @@ public class AccountMapper {
                         ? UserDto.builder().id(data.getUserId()).build()
                         : null)
                 .bankDto(data.getBankId() != null
-                        ? BankDto.builder().id(data.getBankId()).build()
+                        ? Bank.builder().id(data.getBankId()).build()
                         : null)
                 .accountType(data.getAccountTypeId() != null
-                        ? AccountTypeDto.builder().id(data.getAccountTypeId()).build()
+                        ? AccountType.builder().id(data.getAccountTypeId()).build()
                         : null)
                 .createdAt(data.getCreatedAt())
                 .updatedAt(data.getUpdatedAt())

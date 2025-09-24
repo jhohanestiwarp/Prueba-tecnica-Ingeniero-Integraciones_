@@ -1,31 +1,29 @@
-package com.project.bank;
+package com.project.accountlengthrule;
 
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
+
 import java.time.LocalDateTime;
 
 @Data
 @Builder(toBuilder = true)
-@Table(name = "banks")
-public class BankData {
+@Table(name = "bank_account_length_rules")
+public class AccountLengthRuleData {
 
     @Id
     private Long id;
 
-    @Column("code")
-    private String code;
+    @Column("bank_id")
+    private Long bankId;
 
-    @Column("nit")
-    private String nit;
+    @Column("min_len")
+    private Integer minLen;
 
-    @Column("name")
-    private String name;
-
-    @Column("is_active")
-    private Boolean isActive;
+    @Column("max_len")
+    private Integer maxLen;
 
     @Column("created_at")
     private LocalDateTime createdAt;

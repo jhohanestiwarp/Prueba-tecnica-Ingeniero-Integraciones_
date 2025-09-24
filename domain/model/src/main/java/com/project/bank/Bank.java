@@ -1,4 +1,4 @@
-package com.project.accountypes;
+package com.project.bank;
 
 import lombok.Builder;
 import lombok.Data;
@@ -11,10 +11,11 @@ import java.time.LocalDateTime;
 @Setter
 @Data
 @Builder
-public class AccountTypeDto {
+public class Bank {
     private Long id;
+    private String code;
+    private String nit;
     private String name;
-    private String description;
     private Boolean isActive;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

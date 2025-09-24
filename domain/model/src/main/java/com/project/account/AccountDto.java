@@ -1,7 +1,7 @@
 package com.project.account;
 
-import com.project.accountypes.AccountTypeDto;
-import com.project.bank.BankDto;
+import com.project.accountypes.AccountType;
+import com.project.bank.Bank;
 import com.project.user.UserDto;
 import lombok.Builder;
 import lombok.Data;
@@ -24,8 +24,8 @@ public class AccountDto {
     private Boolean isInternalBank;
     private String status;
     private UserDto user;
-    private BankDto bankDto;
-    private AccountTypeDto accountType;
+    private Bank bankDto;
+    private AccountType accountType;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

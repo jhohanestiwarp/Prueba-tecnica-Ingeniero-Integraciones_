@@ -1,9 +1,8 @@
 package com.project.bank.services;
 
-import com.project.account.AccountDto;
-import com.project.accounts.AccountUseCaseImpl;
-import com.project.bank.BankDto;
+import com.project.bank.Bank;
 import com.project.bank.BankUseCaseImp;
+import com.project.bank.dto.BankDto;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -16,12 +15,16 @@ public class BankService {
         this.bankUseCaseImp = bankUseCaseImp;
     }
 
-    public Mono<BankDto> createBank(BankDto bankDto) {
+    public Mono<Bank> createBank(Bank bankDto) {
         return bankUseCaseImp.createBank(bankDto);
     }
 
-    public Mono<BankDto> updateBank(Long id, BankDto bankDto) {
+    public Mono<Bank> updateBank(Long id, Bank bankDto) {
         return bankUseCaseImp.updateBank(id, bankDto);
+    }
+
+    public Mono<BankDto> getById(Long id) {
+        return bankUseCaseImp.findBankById(id);
     }
 
     public Flux<BankDto> getAllBanks() {

@@ -1,12 +1,13 @@
 package com.project.bank.gatewey.in;
 
-import com.project.bank.BankDto;
+import com.project.bank.Bank;
+import com.project.bank.dto.BankDto;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface BankUseCase {
-    Mono<BankDto> createBank(BankDto bankDto);
-    Mono<BankDto> updateBank(Long id, BankDto bankDto);
+    Mono<Bank> createBank(Bank bankDto);
+    Mono<Bank> updateBank(Long id, Bank bankDto);
     Flux<BankDto> getAllBanks();
     Mono<BankDto> findBankById(Long id);
     Mono<Boolean> deleteBank(Long id);

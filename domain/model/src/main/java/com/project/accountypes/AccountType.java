@@ -1,6 +1,5 @@
-package com.project.bank;
+package com.project.accountypes;
 
-import com.project.bankaccountlengthrule.BankAccountLengthRuleDTO;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -12,14 +11,11 @@ import java.time.LocalDateTime;
 @Setter
 @Data
 @Builder
-public class BankDto {
-
+public class AccountType {
     private Long id;
-    private String code;
-    private String nit;
     private String name;
+    private String description;
     private Boolean isActive;
-    private BankAccountLengthRuleDTO accountLengthRule;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

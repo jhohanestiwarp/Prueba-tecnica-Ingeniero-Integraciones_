@@ -1,6 +1,7 @@
-package com.project.bank;
+package com.project.bankaccounttype;
 
-import com.project.bank.services.BankService;
+import com.project.accountypes.AccountType;
+import com.project.bankaccounttype.services.BankAccountTypeService;
 import com.project.http.ResponseHandler;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -14,18 +15,18 @@ import java.util.Map;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1/banks")
+@RequestMapping("/api/v1/bankAccountType")
 @RequiredArgsConstructor
-public class BankController {
+public class BankAccountTypeController {
 
-    private final BankService bankService;
-    private static final Logger logger = LoggerFactory.getLogger(BankController.class);
+    private final BankAccountTypeService bankAccountTypeService;
+    private static final Logger logger = LoggerFactory.getLogger(BankAccountTypeController.class);
 
     @PostMapping
-    public Mono<ResponseEntity<Map<String, Object>>> create(@RequestBody Bank request) {
+    public Mono<ResponseEntity<Map<String, Object>>> create(@RequestBody BankAccountType request) {
         logger.info("bank: creating new bank");
 
-        return bankService.createBank(request)
+        return bankAccountTypeService.createAccountType(request)
                 .map(result -> ResponseHandler.success("Banco creado exitosamente", result))
                 .onErrorResume(e -> {
                     logger.error("Error creando banco: {}", e.getMessage());
@@ -33,24 +34,11 @@ public class BankController {
                 });
     }
 
-    @GetMapping("/{id}")
-    public Mono<ResponseEntity<Map<String, Object>>> getByID(@PathVariable Long id) {
-        logger.info("rules: get by id {}", id);
-
-        return bankService.getById(id)
-                .map(updated -> ResponseHandler.success("Banco actualizado", updated))
-                .switchIfEmpty(Mono.just(ResponseHandler.error("Banco no encontrado", HttpStatus.NOT_FOUND)))
-                .onErrorResume(e -> {
-                    logger.error("Error al actualizar banco: {}", e.getMessage());
-                    return Mono.just(ResponseHandler.error("Error interno", HttpStatus.INTERNAL_SERVER_ERROR));
-                });
-    }
-
     @GetMapping
     public Mono<ResponseEntity<Map<String, Object>>> getAll() {
         logger.info("bank: listing all banks");
 
-        return bankService.getAllBanks()
+        return bankAccountTypeService.getAllAccountTypes()
                 .collectList()
                 .map(list -> ResponseHandler.success("Bancos encontrados", list))
                 .onErrorResume(e -> {
@@ -59,24 +47,11 @@ public class BankController {
                 });
     }
 
-    @PutMapping("/{id}")
-    public Mono<ResponseEntity<Map<String, Object>>> update(@PathVariable Long id, @RequestBody Bank request) {
-        logger.info("bank: updating {}", id);
-
-        return bankService.updateBank(id, request)
-                .map(updated -> ResponseHandler.success("Banco actualizado", updated))
-                .switchIfEmpty(Mono.just(ResponseHandler.error("Banco no encontrado", HttpStatus.NOT_FOUND)))
-                .onErrorResume(e -> {
-                    logger.error("Error al actualizar banco: {}", e.getMessage());
-                    return Mono.just(ResponseHandler.error("Error interno", HttpStatus.INTERNAL_SERVER_ERROR));
-                });
-    }
-
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<Map<String, Object>>> delete(@PathVariable Long id) {
         logger.info("bank: deleting {}", id);
 
-        return bankService.deleteBank(id)
+        return bankAccountTypeService.deleteAccountType(id)
                 .map(deleted -> {
                     if (Boolean.TRUE.equals(deleted)) {
                         return ResponseHandler.success("Banco eliminado correctamente");

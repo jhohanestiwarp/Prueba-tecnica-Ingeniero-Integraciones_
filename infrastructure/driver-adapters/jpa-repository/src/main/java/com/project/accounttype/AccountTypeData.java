@@ -1,28 +1,26 @@
-package com.project.bank;
+package com.project.accounttype;
 
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
+
 import java.time.LocalDateTime;
 
 @Data
 @Builder(toBuilder = true)
-@Table(name = "banks")
-public class BankData {
+@Table(name = "account_types")
+public class AccountTypeData {
 
     @Id
     private Long id;
 
-    @Column("code")
-    private String code;
-
-    @Column("nit")
-    private String nit;
-
     @Column("name")
     private String name;
+
+    @Column("description")
+    private String description;
 
     @Column("is_active")
     private Boolean isActive;
