@@ -1,18 +1,20 @@
 package com.project.accounts;
 
-import com.project.account.AccountDto;
-import com.project.account.gatewey.in.AccountUseCase;
+import com.project.account.Account;
 import com.project.accounts.service.AccountService;
+import com.project.audittransaction.AuditTransaction;
+import com.project.audittransaction.services.AuditTransactionService;
 import com.project.http.ResponseHandler;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 @CrossOrigin
@@ -22,19 +24,20 @@ import java.util.Map;
 public class AccountController {
 
     private final AccountService accountService;
+    private final AuditTransactionService auditTransactionService;
     private static final Logger logger = LoggerFactory.getLogger(AccountController.class);
 
     @PostMapping
-    public Mono<ResponseEntity<Map<String, Object>>> create(@RequestBody AccountDto request) {
-        logger.info("account: creating new account");
-
-        return accountService.createAccount(request)
+    public Mono<ResponseEntity<Map<String, Object>>> create(
+            @RequestBody Account request,
+            @RequestHeader(name = "X-Channel", required = false) String channel) {
+        return ReactiveSecurityContextHolder.getContext()
+                .map(ctx -> ctx.getAuthentication().getName())
+                .flatMap(username -> accountService.createAccount(request, username, channel))
                 .map(result -> ResponseHandler.success("Cuenta creada exitosamente", result))
-                .onErrorResume(e -> {
-                    logger.error("Error creando cuenta: {}", e.getMessage());
-                    return Mono.just(ResponseHandler.error(e.getMessage(), HttpStatus.BAD_REQUEST));
-                });
+                .onErrorResume(e -> Mono.just(ResponseHandler.error(e.getMessage(), HttpStatus.BAD_REQUEST)));
     }
+
 
     @GetMapping
     public Mono<ResponseEntity<Map<String, Object>>> getAll(
@@ -53,7 +56,7 @@ public class AccountController {
     }
 
     @PutMapping("/{id}")
-    public Mono<ResponseEntity<Map<String, Object>>> update(@PathVariable Long id, @RequestBody AccountDto request) {
+    public Mono<ResponseEntity<Map<String, Object>>> update(@PathVariable Long id, @RequestBody Account request) {
         logger.info("account: updating {}", id);
 
         return accountService.updateAccount(id, request)

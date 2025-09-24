@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @Data
 @Builder
-public class AccountDto {
+public class Account {
     private Long id;
     private String accountNumber;
     private String cellphone;
@@ -23,9 +23,9 @@ public class AccountDto {
     private String document;
     private Boolean isInternalBank;
     private String status;
-    private UserDto user;
-    private Bank bankDto;
-    private AccountType accountType;
+    private Long userId;
+    private Long bankId;
+    private Long accountTypeId;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }

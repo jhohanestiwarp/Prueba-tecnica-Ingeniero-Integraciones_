@@ -16,21 +16,21 @@ public class AccountRepositoryAdapter implements AccountRepository {
     private final AccountMapper mapper;
 
     @Override
-    public Mono<AccountDto> save(AccountDto accountDto) {
-        return mapper.toData(accountDto)
+    public Mono<Account> save(Account account) {
+        return mapper.toData(account)
                 .flatMap(repository::save)
                 .map(mapper::toDomain);
     }
 
     @Override
-    public Mono<AccountDto> update(AccountDto accountDto) {
-        return mapper.toData(accountDto)
+    public Mono<Account> update(Account account) {
+        return mapper.toData(account)
                 .flatMap(repository::save)
                 .map(mapper::toDomain);
     }
 
     @Override
-    public Flux<AccountDto> findAll(Long bankId, String type) {
+    public Flux<Account> findAll(Long bankId, String type) {
         if (bankId != null) {
             return repository.findAllByBankIdAndAccountTypeId(bankId, type)
                     .map(mapper::toDomain);
@@ -48,7 +48,7 @@ public class AccountRepositoryAdapter implements AccountRepository {
     }
 
     @Override
-    public Mono<AccountDto> findById(Long id) {
+    public Mono<Account> findById(Long id) {
         return repository.findById(id.toString())
                 .map(mapper::toDomain);
     }

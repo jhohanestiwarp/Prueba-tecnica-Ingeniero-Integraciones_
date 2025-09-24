@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 @Component
 public class AccountMapper {
 
-    public Mono<AccountData> toData(AccountDto dto) {
+    public Mono<AccountData> toData(Account dto) {
         return Mono.just(AccountData.builder()
                 .id(dto.getId())
                 .accountNumber(dto.getAccountNumber())
@@ -17,22 +17,22 @@ public class AccountMapper {
                 .alias(dto.getAlias())
                 .typeDocument(dto.getTypeDocument())
                 .document(dto.getDocument())
-                .isInternalBank(dto.getIsInternalBank() != null ? dto.getIsInternalBank() : false)
-                .status(dto.getStatus() != null ? dto.getStatus() : "ENROLLED")
-                .userId(dto.getUser() != null ? dto.getUser().getId() : null)
-                .bankId(dto.getBankDto() != null ? dto.getBankDto().getId() : null)
-                .accountTypeId(dto.getAccountType() != null ? dto.getAccountType().getId() : null)
+                .isInternalBank(dto.getIsInternalBank())
+                .status(dto.getStatus())
+                .userId(dto.getUserId())
+                .bankId(dto.getBankId())
+                .accountTypeId(dto.getAccountTypeId())
                 .createdAt(dto.getCreatedAt())
                 .updatedAt(dto.getUpdatedAt())
                 .build());
     }
 
-    public AccountDto toDomain(AccountData data) {
+    public Account toDomain(AccountData data) {
         if (data == null) {
             return null;
         }
 
-        return AccountDto.builder()
+        return Account.builder()
                 .id(data.getId())
                 .accountNumber(data.getAccountNumber())
                 .cellphone(data.getCellphone())
@@ -41,15 +41,9 @@ public class AccountMapper {
                 .document(data.getDocument())
                 .isInternalBank(data.getIsInternalBank())
                 .status(data.getStatus())
-                .user(data.getUserId() != null
-                        ? UserDto.builder().id(data.getUserId()).build()
-                        : null)
-                .bankDto(data.getBankId() != null
-                        ? Bank.builder().id(data.getBankId()).build()
-                        : null)
-                .accountType(data.getAccountTypeId() != null
-                        ? AccountType.builder().id(data.getAccountTypeId()).build()
-                        : null)
+                .userId(data.getUserId())
+                .bankId(data.getBankId())
+                .accountTypeId(data.getAccountTypeId())
                 .createdAt(data.getCreatedAt())
                 .updatedAt(data.getUpdatedAt())
                 .build();

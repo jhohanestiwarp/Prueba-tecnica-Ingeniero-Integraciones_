@@ -1,18 +1,18 @@
 package com.project.account.gatewey.out;
 
-import com.project.account.AccountDto;
+import com.project.account.Account;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface AccountRepository {
 
-    Mono<AccountDto> save(AccountDto accountDto);
+    Mono<Account> save(Account account);
 
-    Mono<AccountDto> update(AccountDto accountDto);
+    Mono<Account> update(Account account);
 
-    Flux<AccountDto> findAll(Long bankId, String type);
+    Flux<Account> findAll(Long bankId, String type);
 
-    Mono<AccountDto> findById(Long id);
+    Mono<Account> findById(Long id);
 
     Mono<Boolean> deleteById(Long id);
 }

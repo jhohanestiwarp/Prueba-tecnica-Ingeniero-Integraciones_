@@ -1,16 +1,16 @@
 package com.project.account.gatewey.in;
 
-import com.project.account.AccountDto;
+import com.project.account.Account;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface AccountUseCase {
 
-    Mono<AccountDto> createAccount(AccountDto accountDto);
+    Mono<Account> createAccount(Account account, String username, String channel);
 
-    Mono<AccountDto> updateAccount(Long id, AccountDto accountDto);
+    Mono<Account> updateAccount(Long id, Account account);
 
-    Flux<AccountDto> getAllAccounts(Long bankId, String type);
+    Flux<Account> getAllAccounts(Long bankId, String type);
 
     Mono<Boolean> deleteAccount(Long id);
 }

@@ -1,6 +1,6 @@
 package com.project.accounts.service;
 
-import com.project.account.AccountDto;
+import com.project.account.Account;
 import com.project.accounts.AccountUseCaseImpl;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -15,15 +15,15 @@ public class AccountService {
         this.accountUseCase = accountUseCase;
     }
 
-    public Mono<AccountDto> createAccount(AccountDto accountDto) {
-        return accountUseCase.createAccount(accountDto);
+    public Mono<Account> createAccount(Account account, String username, String channel) {
+        return accountUseCase.createAccount(account, username, channel);
     }
 
-    public Mono<AccountDto> updateAccount(Long id, AccountDto accountDto) {
-        return accountUseCase.updateAccount(id, accountDto);
+    public Mono<Account> updateAccount(Long id, Account account) {
+        return accountUseCase.updateAccount(id, account);
     }
 
-    public Flux<AccountDto> getAllAccounts(Long bankId, String type) {
+    public Flux<Account> getAllAccounts(Long bankId, String type) {
         return accountUseCase.getAllAccounts(bankId, type);
     }
 
