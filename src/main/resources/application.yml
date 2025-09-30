@@ -3,15 +3,21 @@ server:
 
 spring:
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/bancoUnion
-    username: postgres
-    password: admin123
+    r2dbc:h2:file:///./data/db_students;DB_CLOSE_DELAY=-1;MODE=PostgreSQL:
+    username: sa
+    password:
     pool:
       enabled: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
   jpa:
     hibernate:
       ddl-auto: update
-
+  sql:
+    init:
+      mode: always
   jwt:
     secret: "MUVFQTJCQkFCMzI0MzkyM0E5QjlGNTU2REMyNDlEQTdEMjUyMUNBODFDQkE4"
 

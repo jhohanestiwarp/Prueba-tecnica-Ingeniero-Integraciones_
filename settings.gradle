@@ -1,4 +1,4 @@
-rootProject.name = 'catalogue'
+rootProject.name = 'student'
 
 include 'domain:model'
 findProject(':domain:model')?.name = 'model'

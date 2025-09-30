@@ -27,10 +27,10 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -Dfile.encoding=windows-1252 -Duser.country=CO -Duser.language=es -Duser.variant com.project.catalogue.CatalogueApplication
+Command Line: -Dfile.encoding=windows-1252 -Duser.country=CO -Duser.language=es -Duser.variant com.project.student.MainApplication
 
 Host: AMD Ryzen 5 5600G with Radeon Graphics         , 12 cores, 23G,  Windows 11 , 64 bit Build 26100 (10.0.26100.5074)
-Time: Sat Sep 20 22:32:18 2025 Hora est. Pacífico, Sudamérica elapsed time: 0.012292 seconds (0d 0h 0m 0s)
+Time: Sat Sep 20 22:32:18 2025 Hora est. Pacï¿½fico, Sudamï¿½rica elapsed time: 0.012292 seconds (0d 0h 0m 0s)
 
 ---------------  T H R E A D  ---------------
 
@@ -171,7 +171,7 @@ symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Us
 
 VM Arguments:
 jvm_args: -Dfile.encoding=windows-1252 -Duser.country=CO -Duser.language=es -Duser.variant 
-java_command: com.project.catalogue.CatalogueApplication
+java_command: com.project.student.MainApplication
 java_class_path (initial): D:\Jhon\AutoManager\BancoUnion\build\classes\java\main;D:\Jhon\AutoManager\BancoUnion\build\resources\main;C:\Users\USER\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-devtools\3.1.1\fca82661c18f1ca18614d308523c0d404d3753b9\spring-boot-devtools-3.1.1.jar;D:\Jhon\AutoManager\BancoUnion\infrastructure\entry-points\reactive-web\build\libs\reactive-web-0.0.1-SNAPSHOT-plain.jar;D:\Jhon\AutoManager\BancoUnion\infrastructure\driver-adapters\jpa-repository\build\libs\jpa-repository-0.0.1-SNAPSHOT-plain.jar;C:\Users\USER\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-data-r2dbc\3.1.1\8df9e37caeeb97a669568fc887f13457c6a1b339\spring-boot-starter-data-r2dbc-3.1.1.jar;D:\Jhon\AutoManager\BancoUnion\aplication\use-case\build\libs\use-case-0.0.1-SNAPSHOT-plain.jar;C:\Users\USER\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-security\3.1.1\f793cb8804e6f00916673a7754284dadc0b4502c\spring-boot-starter-security-3.1.1.jar;D:\Jhon\AutoManager\BancoUnion\domain\model\build\libs\model-0.0.1-SNAPSHOT-plain.jar;C:\Users\USER\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-webflux\3.1.1\1d4a3c085f2f0ab437f0c7b41ffaec02b29eb1e\spring-boot-starter-webflux-3.1.1.jar;C:\Users\USER\.gradle\caches\modules-2\files-2.1\io.jsonwebtoken\jjwt-impl\0.11.5\40a599f0e8a8e4e0701596fbb15e67bfda64fdf0\jjwt-impl-0.11.5.jar;C:\Users\USER\.gradle\caches\modules-2\files-2.1\io.jsonwebtoken\jjwt-jackson\0.11.5\3b83a06809e98a69402d7333dcf67df6f6ea4579\jjwt-jackson-0.11.5.jar;C:\Users\USER\.gradle\caches\modules-2\files-2.1\io.jsonwebtoken\jjwt-api\0.11.5\f742940045619d06383e7df37b21ac422b476cf1\jjwt-api-0.11.5.jar;C:\Users\USER\.gradle\caches\modules-2\files-2.1\javax.xml.bind\jaxb-api\2.4.0-b180830.0359\b54184b7dcab2031add3f525550c7f1b7e12209d\jaxb-api-2.4.0-b180830.0359.jar;C:\Users\USER\.gradle\caches\modules-2\files-2.1\org.postgresql\r2dbc-postgresql\1.0.1.RELE
 Launcher Type: SUN_STANDARD
 

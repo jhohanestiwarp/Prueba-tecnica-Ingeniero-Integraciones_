@@ -1,4 +1,4 @@
-package com.project.user;
+package com.project.student;
 
 import lombok.Builder;
 import lombok.Data;
@@ -10,25 +10,32 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder(toBuilder = true)
-@Table(name = "users")
-public class UserData {
+@Table(name = "students")
+public class StudentData {
+
     @Id
     private Long id;
 
-    @Column("username")
-    private String username;
+    @Column("first_name")
+    private String firstName;
 
-    @Column("fullname")
-    private String fullname;
+    @Column("last_name")
+    private String lastName;
+
+    @Column("document_type")
+    private String documentType;
+
+    @Column("document")
+    private String document;
+
+    @Column("age")
+    private Integer age;
 
     @Column("email")
     private String email;
 
-    @Column("password")
-    private String password;
-
-    @Column("role")
-    private String role;
+    @Column("cell_phone")
+    private String cellPhone;
 
     @Column("state")
     private String state;

@@ -35,5 +35,5 @@ test {
 }
 
 bootJar {
-    mainClass = 'com.project.catalogue.CatalogueApplication'
+    mainClass = 'com.project.student.CatalogueApplication'
 }
